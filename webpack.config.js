@@ -1,5 +1,7 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMerge = require('webpack-merge');
+const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 
 
 const sass = {
@@ -31,10 +33,10 @@ const imageAssets = {
 	]
 }
 
-module.exports = {
+module.exports = ({mode, presets} = {mode: 'production', presets: []}) => WebpackMerge({
+	mode,
 	entry: './src/index.js',
 	output: {
-		path: path.join(__dirname, '/dist'),
 		filename: 'bundle.js'
 	},
 	module: {
@@ -45,4 +47,6 @@ module.exports = {
 			template: './src/index.html'
 		})
 	]
-}
+},
+	modeConfig(mode)
+);

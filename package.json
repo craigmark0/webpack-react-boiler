@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --env.mode development --open --hot",
+    "build": "webpack --env.mode production"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.37.0",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.2"
   }
 }
